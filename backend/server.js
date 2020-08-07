@@ -14,7 +14,7 @@ app.use(express.json());
 
 //connecting to mongodb
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri,{useNewUrlParser:true, useCreateIndex:true});
+mongoose.connect(uri,{useNewUrlParser:true, useCreateIndex:true, useUnifiedTopology: true});
 const connection = mongoose.connection;
 connection.once('open',()=>{
     console.log('MongoDB Database Connection Success');
@@ -24,8 +24,8 @@ connection.once('open',()=>{
 const exerciseRouter = require('./routes/exercise');
 const userRouter = require('./routes/users');
 
-app.use('/exercise',exerciseRouter);
-app.use('/user',userRouter);
+app.use('/exercises',exerciseRouter);
+app.use('/users',userRouter);
 
 //running the server
 app.listen(port,()=>{
