@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.schema;
+const Schema = mongoose.Schema;
 
 //making a user's schema with just one field 'username' and then validating it
 const userSchema = new Schema({
@@ -11,7 +11,7 @@ const userSchema = new Schema({
         minlength: true,
     },
 },{
-    timestampe:true,    // keep track of creation & modification
+    timestamps:true,    // keep track of creation & modification
 });
 
 // create User model using userSchema & then export
