@@ -20,6 +20,13 @@ connection.once('open',()=>{
     console.log('MongoDB Database Connection Success');
 })
 
+//add routes to url endpoints
+const exerciseRouter = require('./routes/exercise');
+const userRouter = require('./routes/users');
+
+app.use('/exercise',exerciseRouter);
+app.use('/user',userRouter);
+
 //running the server
 app.listen(port,()=>{
     console.log('The server is running in the port:', port);
